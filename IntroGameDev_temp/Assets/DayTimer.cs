@@ -20,6 +20,6 @@ public class DayTimer : MonoBehaviour {
 	}
 
 	void OnGUI() {
-		GUI.Label(new Rect(145, 15, 100, 20), "Day: "+day);
+		GUI.Label(new Rect(270, 40, 100, 20), "Day: "+day);
 	}
 }
