@@ -98,6 +98,7 @@ public class Plant : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D coll) {
 		if (coll.gameObject.tag == "PlantFood") {
 			Hunger-=4f;
+			Relationship -= 1f;
 		}
 		if (coll.gameObject.tag == "Meat") {
 			Hunger-=15f;

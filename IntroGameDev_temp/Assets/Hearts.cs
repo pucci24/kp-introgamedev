@@ -18,4 +18,9 @@ public class Hearts : MonoBehaviour {
 			hit = false;
 		}
 	}
+
+	void OnGUI() {
+		GUI.contentColor = Color.black;
+		GUI.Label(new Rect(270, 40, 100, 20), "Health: "+health);
+	}
 }

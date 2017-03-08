@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class DayTimer : MonoBehaviour {
+	public Hearts Health;
 	int day=1;
 	float timePassed=0f;
 
@@ -15,11 +16,13 @@ public class DayTimer : MonoBehaviour {
 		if (timePassed >= 300f) {
 			day += 1;
 			timePassed = 0f;
+			Health.health += 2;
 		}
 			
 	}
 
 	void OnGUI() {
-		GUI.Label(new Rect(270, 40, 100, 20), "Day: "+day);
+		GUI.contentColor = Color.black;
+		GUI.Label(new Rect(270, 60, 100, 20), "Day: "+day);
 	}
 }

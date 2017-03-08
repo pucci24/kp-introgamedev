@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Feed : MonoBehaviour 
 {
-	public GameObject food;
+	public GameObject plantfood;
+	public GameObject meat;
 
 	Vector3 actualMousePosition;
 
@@ -88,7 +89,14 @@ public class Feed : MonoBehaviour
 
 	public void OnPlantFoodButtonClick ()
 	{
-		GameObject newFood = Instantiate(food);
+		GameObject newFood = Instantiate(plantfood);
+		newFood.transform.position = actualMousePosition;
+
+	}
+
+	public void OnMeatButtonClick ()
+	{
+		GameObject newFood = Instantiate(meat);
 		newFood.transform.position = actualMousePosition;
 
 	}
