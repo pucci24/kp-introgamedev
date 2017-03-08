@@ -72,17 +72,17 @@ public class Plant : MonoBehaviour {
 		if (Content == true) {
 			EvolutionTimer += 1f * Time.deltaTime;
 		}
-		if (EvolutionTimer >= 9) {
+		if (EvolutionTimer >= 300) {
 			Overgrowth = true;
 			evoMulti = 2f;
 			MBloom = false;
 		}
-		else if (EvolutionTimer >= 6) {
+		else if (EvolutionTimer >= 200) {
 			MBloom = true;
 			evoMulti = 1.5f;
 			IBloom = false;
 		}
-		else if (EvolutionTimer >= 3) {
+		else if (EvolutionTimer >= 150) {
 			IBloom = true;
 			evoMulti = 1.2f;
 			Sprout = false;

@@ -12,8 +12,9 @@ public class DayTimer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		Debug.Log ("Day:"+timePassed);
 		timePassed += Time.deltaTime;
-		if (timePassed >= 300f) {
+		if (timePassed >= 200f) {
 			day += 1;
 			timePassed = 0f;
 			if (Health.health < 8) {
