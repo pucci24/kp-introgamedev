@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class Feed : MonoBehaviour 
 {
+	public Hearts Health;
+
 	public GameObject plantfood;
 	public GameObject meat;
+	public GameObject you;
 
 	Vector3 actualMousePosition;
 
@@ -20,6 +23,7 @@ public class Feed : MonoBehaviour
 	private Vector2 initYouButtonPos;
 
 	private bool hover;
+	public int meatSupplies=10;
 
 	// Use this for initialization
 	void Start () 
@@ -96,8 +100,23 @@ public class Feed : MonoBehaviour
 
 	public void OnMeatButtonClick ()
 	{
-		GameObject newFood = Instantiate(meat);
-		newFood.transform.position = actualMousePosition;
+		if (meatSupplies > 0) {
+			GameObject newFood = Instantiate (meat);
+			newFood.transform.position = actualMousePosition;
+			meatSupplies -= 1;
+		}
+	}
 
+	public void OnYouButtonClick ()
+	{
+		GameObject newFood = Instantiate(you);
+		newFood.transform.position = actualMousePosition;
+		Health.health -= 1;
+	}
+
+	void OnGUI ()
+	{
+		GUI.contentColor = Color.black;
+		GUI.Label (new Rect (270, 80, 100, 20), "Meat: " + meatSupplies);
 	}
 }

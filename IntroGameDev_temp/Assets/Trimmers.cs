@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Food : MonoBehaviour {
+public class Trimmers : MonoBehaviour {
 	public Plant plant;
 	public Hearts Health;
 	Vector3 actualMousePosition;
 
 	// Use this for initialization
 	void Start () {
-		
+
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		actualMousePosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);
@@ -20,12 +20,14 @@ public class Food : MonoBehaviour {
 		if (transform.position.y <= -7) {
 			Destroy (gameObject);
 		}
-		
+
 	}
 
 	void OnCollisionEnter2D(Collision2D coll) {
-		if (coll.gameObject.tag == "Plant") {
+		if (coll.gameObject.tag == "Bud") {
 			Destroy(gameObject);
+			Destroy (coll.gameObject);
+			plant.buds -= 1;
 			if (plant.sap == true) {
 				Health.health -= 1;
 			}

@@ -2,21 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Play : MonoBehaviour 
+public class Play : MonoBehaviour
 {
 	public Hearts Health;
 	public Plant Plant;
 
 	//Peekaboo Variables
-	bool PeekabooActive=false;
-	bool PlayerLooking=true;
-	bool PlantLooking=false;
-	bool reset=false;
-	float TimeSpotted=0f;
-	float activeTimer=0f;
-	float TimeClosed=0f;
-	float random5=0f;
-	float MinigameTime=15f;
+	bool PeekabooActive = false;
+	bool PlayerLooking = true;
+	bool PlantLooking = false;
+	bool reset = false;
+	float TimeSpotted = 0f;
+	float activeTimer = 0f;
+	float TimeClosed = 0f;
+	float random5 = 0f;
+	float MinigameTime = 15f;
 	public GameObject Eyelid;
 
 	Vector3 actualMousePosition;
@@ -34,20 +34,20 @@ public class Play : MonoBehaviour
 	private bool hover;
 
 	// Use this for initialization
-	void Start () 
+	void Start ()
 	{
 		//Peekaboo Initializing
-		random5=Random.Range(3f,5f);
+		random5 = Random.Range (3f, 5f);
 		activeTimer = random5;
 
 
-		initPeekabooButtonPos = PeekabooButton.GetComponent<RectTransform>().anchoredPosition;
-		initGuessButtonPos = GuessButton.GetComponent<RectTransform>().anchoredPosition;
-		initDanceButtonPos = DanceButton.GetComponent<RectTransform>().anchoredPosition;
+		initPeekabooButtonPos = PeekabooButton.GetComponent<RectTransform> ().anchoredPosition;
+		initGuessButtonPos = GuessButton.GetComponent<RectTransform> ().anchoredPosition;
+		initDanceButtonPos = DanceButton.GetComponent<RectTransform> ().anchoredPosition;
 
-		PeekabooButton.GetComponent<RectTransform> ().anchoredPosition = new Vector2(-123f,PeekabooButton.GetComponent<RectTransform> ().anchoredPosition.y);
-		GuessButton.GetComponent<RectTransform> ().anchoredPosition = new Vector2(-123f,GuessButton.GetComponent<RectTransform> ().anchoredPosition.y);
-		DanceButton.GetComponent<RectTransform> ().anchoredPosition = new Vector2(-123f,DanceButton.GetComponent<RectTransform> ().anchoredPosition.y);
+		PeekabooButton.GetComponent<RectTransform> ().anchoredPosition = new Vector2 (-123f, PeekabooButton.GetComponent<RectTransform> ().anchoredPosition.y);
+		GuessButton.GetComponent<RectTransform> ().anchoredPosition = new Vector2 (-123f, GuessButton.GetComponent<RectTransform> ().anchoredPosition.y);
+		DanceButton.GetComponent<RectTransform> ().anchoredPosition = new Vector2 (-123f, DanceButton.GetComponent<RectTransform> ().anchoredPosition.y);
 	}
 
 	// Update is called once per frame
@@ -92,55 +92,58 @@ public class Play : MonoBehaviour
 		}
 
 		//Minigames
-		if ((PeekabooActive == true)&&(MinigameTime > 0f)) {
-				reset = false;
-				MinigameTime -= 1f * Time.deltaTime;
-				if (Plant.Boredom > 0f) {
-					Plant.Boredom -= 3f * Time.deltaTime;
-				}
-				Debug.Log (PlantLooking);
-
-				if ((PlantLooking == true) && (PlayerLooking == true)) {
-					TimeSpotted += 1f * Time.deltaTime;
-				}
-
-				if (TimeSpotted >= 1f) {
-					Health.hit = true;
-					PeekabooActive = false;
-				}
-
-				if (activeTimer > 0f) {
-					activeTimer -= 1f * Time.deltaTime;
-				} else if (activeTimer <= 0f) {
-					PlantLooking = !PlantLooking;
-					activeTimer = random5;
-				}
-
-				if ((Input.GetKey (KeyCode.Space)) && (PeekabooActive == true)) {
-					Eyelid.SetActive (true);
-					PlayerLooking = false;
-					TimeClosed += 1f * Time.deltaTime;
-					if (TimeClosed >= 6f) {
-						Health.hit = true;
-						TimeClosed = 2f;
-					}
-				} else if ((Input.GetKeyUp (KeyCode.Space)) && (PeekabooActive == true)) {
-					Eyelid.SetActive (false);
-					PlayerLooking = true;
-					TimeClosed = 0f;
-				}
-			}
-		else if (PeekabooActive == false) {
-			Debug.Log ("reset");
-			PeekabooActive = false;
+		if ((PeekabooActive == false) && (reset == false)) {  //WHY IS SPACE RESETTING THE TIMER AND FUNCTIONING WHEN PEEKABOO IS INACTIVE???
 			PlantLooking = false;
 			Eyelid.SetActive (false);
 			PlayerLooking = true;
 			TimeClosed = 0f;
 			random5 = Random.Range (3f, 5f);
 			activeTimer = random5;
-		}
+			reset = true;
+		} else if ((PeekabooActive == true) && (MinigameTime > 0f)) {
+			reset = false;
+			MinigameTime -= 1f * Time.deltaTime;
 
+			if (Plant.Boredom > 0f) {
+				Plant.Boredom -= 3f * Time.deltaTime;
+			}
+
+			Debug.Log (PlantLooking);
+
+			if ((PlantLooking == true) && (PlayerLooking == true)) {
+				TimeSpotted += 1f * Time.deltaTime;
+			}
+
+			if (TimeSpotted >= 1f) {
+				PeekabooActive = false;
+			}
+
+			if (activeTimer > 0f) {
+				activeTimer -= 1f * Time.deltaTime;
+			} else if (activeTimer <= 0f) {
+				PlantLooking = !PlantLooking;
+				activeTimer = random5;
+			}
+
+			if (Input.GetKey (KeyCode.Space)) {
+				Eyelid.SetActive (true);
+				PlayerLooking = false;
+				TimeClosed += 1f * Time.deltaTime;
+				if (TimeClosed >= 6f) {
+					Health.hit = true;
+					TimeClosed = 2f;
+				}
+			} else if (Input.GetKeyUp (KeyCode.Space)) {
+				Eyelid.SetActive (false);
+				PlayerLooking = true;
+				TimeClosed = 0f;
+			} else {
+			}
+		} else if (MinigameTime <= 0f) {
+			PeekabooActive = false;
+			Debug.Log ("gameFinished");
+		}
+		Debug.Log (MinigameTime);
 	}
 
 	public void OnPlayEnter ()
@@ -160,7 +163,8 @@ public class Play : MonoBehaviour
 
 	}
 
-	void OnGUI() {
+	void OnGUI ()
+	{
 		if (PeekabooActive == true) {
 			GUI.contentColor = Color.black;
 			GUI.Label (new Rect (110, 90, 150, 20), "Find a hiding SPACE!");

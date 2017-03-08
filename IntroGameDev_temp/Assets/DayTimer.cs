@@ -16,7 +16,11 @@ public class DayTimer : MonoBehaviour {
 		if (timePassed >= 300f) {
 			day += 1;
 			timePassed = 0f;
-			Health.health += 2;
+			if (Health.health < 8) {
+				Health.health += 2;
+			} else if ((Health.health > 8)&&(Health.health < 10)) {
+				Health.health += 1;
+			}
 		}
 			
 	}

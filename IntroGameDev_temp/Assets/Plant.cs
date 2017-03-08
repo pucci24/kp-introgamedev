@@ -5,20 +5,28 @@ using UnityEngine;
 public class Plant : MonoBehaviour {
 
 	public Hearts Health;
+	public GameObject Bud;
+	Vector3 spawn;
+	float timeUntrimmed=0f;
+	public float evoMulti=1f;
+	public int buds=0;
+	public bool thorns=false;
+	public bool sap=false;
 	public bool Content=true;
 	public bool Hungry=false;
 	public bool Bored=false;
 	public bool Attack = false;
-	public bool Bud = true;
+	public bool Sprout = true;
 	public bool IBloom = false;
 	public bool MBloom = false;
 	public bool Overgrowth = false;
-	float AttackTimer=0f;
+	public float AttackTimer=0f;
 	float EvolutionTimer=0f;
 	public float Hunger=0f;
 	public float Thirst=0f;
 	public float Boredom=0f;
 	public float Relationship=50f;
+	float budTimer=0f;
 
 	// Use this for initialization
 	void Start () {
@@ -29,10 +37,10 @@ public class Plant : MonoBehaviour {
 	void Update () {
 		//Needs
 		if (Hunger < 100f) {
-			Hunger += 2f * Time.deltaTime;
+			Hunger += 2f * Time.deltaTime * evoMulti;
 		}
 		if (Thirst < 100f) {
-			Thirst += 1f * Time.deltaTime;
+			Thirst += 1f * Time.deltaTime * evoMulti;
 		}
 		if (Boredom < 100f) {
 			Boredom += 2f * Time.deltaTime;
@@ -64,17 +72,20 @@ public class Plant : MonoBehaviour {
 		if (Content == true) {
 			EvolutionTimer += 1f * Time.deltaTime;
 		}
-		if (EvolutionTimer >= 90) {
+		if (EvolutionTimer >= 9) {
 			Overgrowth = true;
+			evoMulti = 2f;
 			MBloom = false;
 		}
-		else if (EvolutionTimer >= 60) {
+		else if (EvolutionTimer >= 6) {
 			MBloom = true;
+			evoMulti = 1.5f;
 			IBloom = false;
 		}
-		else if (EvolutionTimer >= 30) {
+		else if (EvolutionTimer >= 3) {
 			IBloom = true;
-			Bud = false;
+			evoMulti = 1.2f;
+			Sprout = false;
 		}
 			
 
@@ -92,21 +103,56 @@ public class Plant : MonoBehaviour {
 		} else if (Relationship >= 50f) {
 			AttackTimer = 0f;
 		}
+
+		//Buds
+		if (budTimer < 15f) {
+			budTimer += 1f * Time.deltaTime;
+		} else if (budTimer >= 15f) {
+			float spawnX = Random.Range(-0.2f,0.2f);
+			float spawnY = Random.Range(-1.4f,-1.2f);
+			spawn.Set(spawnX,spawnY,0f);
+			GameObject newBud = Instantiate(Bud);
+			newBud.transform.position = (spawn);
+			budTimer = 0f;
+			buds+=1;
+		}
+
+		if (buds>0) {
+			timeUntrimmed += 1f * Time.deltaTime;
+		} else if (buds<=0) {
+			timeUntrimmed = 0f;
+		}
+
+		if ((timeUntrimmed > 45) && thorns && sap) {
+		} else if ((timeUntrimmed > 45) && thorns) {
+			sap = true;
+			timeUntrimmed = 0f;
+		} else if (timeUntrimmed > 45) {
+			thorns = true;
+			timeUntrimmed = 0f;
+		}
 			
 	}
 
 	void OnCollisionEnter2D(Collision2D coll) {
 		if (coll.gameObject.tag == "PlantFood") {
-			Hunger-=4f;
+			Hunger-=10f;
 			Relationship -= 1f;
 		}
 		if (coll.gameObject.tag == "Meat") {
-			Hunger-=15f;
+			Hunger-=30f;
 			Relationship += 5f;
 		}
 		if (coll.gameObject.tag == "You") {
-			Hunger-=30f;
+			Hunger-=50f;
 			Relationship += 15f;
+		}
+
+		if (coll.gameObject.tag == "Water") {
+			Thirst-=25f;
+			if (Thirst > 95) {
+				Relationship -= 15;
+			}
 		}
 	}
 }
