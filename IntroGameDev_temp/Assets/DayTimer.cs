@@ -28,6 +28,6 @@ public class DayTimer : MonoBehaviour {
 
 	void OnGUI() {
 		GUI.contentColor = Color.black;
-		GUI.Label(new Rect(270, 60, 100, 20), "Day: "+day);
+		GUI.Label(new Rect(Screen.width*4/5, Screen.height/2, 100, 20),""+day);
 	}
 }

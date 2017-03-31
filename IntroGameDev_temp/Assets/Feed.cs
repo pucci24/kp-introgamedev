@@ -117,6 +117,6 @@ public class Feed : MonoBehaviour
 	void OnGUI ()
 	{
 		GUI.contentColor = Color.black;
-		GUI.Label (new Rect (270, 80, 100, 20), "Meat: " + meatSupplies);
+		GUI.Label (new Rect (Screen.width/15, Screen.height/8, 100, 20), "Meat: " + meatSupplies);
 	}
 }

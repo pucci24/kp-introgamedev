@@ -1,0 +1,300 @@
+fileFormatVersion: 2
+guid: 7f1fdaa80918e465792531bb63b6ecc5
+timeCreated: 1490771197
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Thorns Mutations_0
+    21300002: Thorns Mutations_1
+    21300004: Thorns Mutations_2
+    21300006: Thorns Mutations_3
+    21300008: Thorns Mutations_4
+    21300010: Thorns Mutations_5
+    21300012: Thorns Mutations_6
+    21300014: Thorns Mutations_7
+    21300016: Thorns Mutations_8
+    21300018: Thorns Mutations_9
+    21300020: Thorns Mutations_10
+    21300022: Thorns Mutations_11
+    21300024: Thorns Mutations_12
+    21300026: Thorns Mutations_13
+    21300028: Thorns Mutations_14
+    21300030: Thorns Mutations_15
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Thorns Mutations_0
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 1580
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Thorns Mutations_1
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 1580
+        width: 80
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Thorns Mutations_2
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 1580
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Thorns Mutations_3
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 1570
+        width: 80
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Thorns Mutations_4
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 1380
+        width: 140
+        height: 110
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Thorns Mutations_5
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 1370
+        width: 200
+        height: 110
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Thorns Mutations_6
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 1380
+        width: 140
+        height: 110
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Thorns Mutations_7
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1360
+        width: 150
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Thorns Mutations_8
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 1100
+        width: 200
+        height: 170
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Thorns Mutations_9
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 1100
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Thorns Mutations_10
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 1100
+        width: 200
+        height: 170
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Thorns Mutations_11
+      rect:
+        serializedVersion: 2
+        x: 890
+        y: 1080
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Thorns Mutations_12
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 689
+        width: 520
+        height: 381
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Thorns Mutations_13
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 670
+        width: 520
+        height: 380
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Thorns Mutations_14
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 280
+        width: 520
+        height: 380
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Thorns Mutations_15
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 280
+        width: 520
+        height: 380
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
