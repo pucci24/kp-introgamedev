@@ -7,6 +7,7 @@ public class Plant : MonoBehaviour
 
 	//Audio&Visual
 	public AudioSource Bite;
+	public AudioSource Splash;
 	SpriteRenderer sr;
 	public Sprite sproutC;
 	public Sprite sproutH;
@@ -303,21 +304,22 @@ public class Plant : MonoBehaviour
 	{
 		if (coll.gameObject.tag == "PlantFood") {
 			Bite.Play();
-			Hunger -= 10f;
+			Hunger -= 20f;
 			Relationship -= 1f;
 		}
 		if (coll.gameObject.tag == "Meat") {
 			Bite.Play ();
-			Hunger -= 30f;
+			Hunger -= 50f;
 			Relationship += 5f;
 		}
 		if (coll.gameObject.tag == "You") {
-			Bite.Play ();
-			Hunger -= 50f;
+			Splash.Play ();
+			Hunger -= 80f;
 			Relationship += 15f;
 		}
 
 		if (coll.gameObject.tag == "Water") {
+			Splash.Play ();
 			Thirst -= 25f;
 			if (Thirst > 95) {
 				Relationship -= 15;

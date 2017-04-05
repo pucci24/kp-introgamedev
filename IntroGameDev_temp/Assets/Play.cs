@@ -18,6 +18,7 @@ public class Play : MonoBehaviour
 	float random5 = 0f;
 	float MinigameTime = 15f;
 	public GameObject Eyelid;
+	public GameObject Alert;
 
 	Vector3 actualMousePosition;
 
@@ -92,7 +93,7 @@ public class Play : MonoBehaviour
 		}
 
 		//Minigames
-		if ((PeekabooActive == false) && (reset == false)) {  //WHY IS SPACE RESETTING THE TIMER AND FUNCTIONING WHEN PEEKABOO IS INACTIVE???
+		if ((PeekabooActive == false) && (reset == false)) {  //WHY IS SPACE RESETTING THE TIMER AND FUNCTIONING WHEN PEEKABOO IS INACTIVE??? I've tried to fix this in so many ways...
 			PlantLooking = false;
 			Eyelid.SetActive (false);
 			PlayerLooking = true;
@@ -105,16 +106,19 @@ public class Play : MonoBehaviour
 			MinigameTime -= 1f * Time.deltaTime;
 
 			if (Plant.Boredom > 0f) {
-				Plant.Boredom -= 3f * Time.deltaTime;
+				Plant.Boredom -= 8f * Time.deltaTime;
 			}
-
-			Debug.Log (PlantLooking);
+			if (PlantLooking == true) {
+				Alert.SetActive (true);
+			} else {
+				Alert.SetActive (false);
+			}
 
 			if ((PlantLooking == true) && (PlayerLooking == true)) {
-				TimeSpotted += 1f * Time.deltaTime;
+				TimeSpotted += 1.5f * Time.deltaTime;
 			}
 
-			if (TimeSpotted >= 1f) {
+			if (TimeSpotted >= 1.5f) {
 				PeekabooActive = false;
 			}
 
@@ -125,7 +129,9 @@ public class Play : MonoBehaviour
 				activeTimer = random5;
 			}
 
-			if (Input.GetKey (KeyCode.Space)) {
+			if (Input.GetKey (KeyCode.Space) && (PeekabooActive == false)) {
+			}
+			else if (Input.GetKey (KeyCode.Space)&& (PeekabooActive == true)) {
 				Eyelid.SetActive (true);
 				PlayerLooking = false;
 				TimeClosed += 1f * Time.deltaTime;

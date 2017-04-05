@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Feed : MonoBehaviour 
 {
+	public AudioSource Cut;
+
 	public Hearts Health;
 
 	public GameObject plantfood;
@@ -112,6 +114,7 @@ public class Feed : MonoBehaviour
 		GameObject newFood = Instantiate(you);
 		newFood.transform.position = actualMousePosition;
 		Health.health -= 1;
+		Cut.Play ();
 	}
 
 	void OnGUI ()

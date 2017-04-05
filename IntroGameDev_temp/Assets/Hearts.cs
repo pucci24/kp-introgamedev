@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Hearts : MonoBehaviour
 {
-	//Visual
+	//Audio&Visual
+	public AudioSource Cut;
 	SpriteRenderer sr;
 	public Sprite ten;
 	public Sprite nine;
@@ -36,6 +37,7 @@ public class Hearts : MonoBehaviour
 			thornAdd = 2;
 		}
 		if (hit == true) {
+			Cut.Play();
 			health -= 1*thornAdd;
 			hit = false;
 		}
