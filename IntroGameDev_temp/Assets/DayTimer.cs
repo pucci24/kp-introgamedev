@@ -6,6 +6,8 @@ public class DayTimer : MonoBehaviour {
 	int day=1;
 	float timePassed=0f;
 
+	public int timeIndicator=1;
+
 	// Use this for initialization
 	void Start () {
 	}
@@ -14,7 +16,7 @@ public class DayTimer : MonoBehaviour {
 	void Update () {
 		Debug.Log ("Day:"+timePassed);
 		timePassed += Time.deltaTime;
-		if (timePassed >= 200f) {
+		if (timePassed >= 30f) {
 			day += 1;
 			timePassed = 0f;
 			if (Health.health < 8) {
@@ -23,6 +25,14 @@ public class DayTimer : MonoBehaviour {
 				Health.health += 1;
 			}
 		}
+
+		if (0f <= timePassed && timePassed < 10f)
+			timeIndicator = 1;
+		if (10f <= timePassed && timePassed < 20f)
+			timeIndicator = 2;
+		if (20f < timePassed && timePassed < 30f)
+			timeIndicator = 3;
+			
 			
 	}
 

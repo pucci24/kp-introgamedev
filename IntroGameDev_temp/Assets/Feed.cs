@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Feed : MonoBehaviour 
 {
+
+	GameObject newFood;
 	public AudioSource Cut;
 
 	public Hearts Health;
@@ -43,11 +45,23 @@ public class Feed : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		actualMousePosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);
-		actualMousePosition.z = 0f;
 
-		//if over the menu bar, have all option buttons slide out
+
+		actualMousePosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);
+		actualMousePosition.z = 0f;		//if over the menu bar, have all option buttons slide out
+
+		if (newFood) 
+		{
+			if(Input.GetMouseButton (0))
+			//assign the new water position with the mouse position
+			newFood.transform.position = actualMousePosition;
+		}
+
 		if (hover) {
+
+
+
+
 			if (plantFoodButton.GetComponent<RectTransform> ().anchoredPosition.x < initPlantFoodButtonPos.x) {
 				plantFoodButton.GetComponent<RectTransform> ().anchoredPosition += new Vector2 (speed, 0f) * Time.deltaTime;
 			} else {
@@ -95,7 +109,7 @@ public class Feed : MonoBehaviour
 
 	public void OnPlantFoodButtonClick ()
 	{
-		GameObject newFood = Instantiate(plantfood);
+		newFood = Instantiate(plantfood);
 		newFood.transform.position = actualMousePosition;
 
 	}
@@ -103,7 +117,7 @@ public class Feed : MonoBehaviour
 	public void OnMeatButtonClick ()
 	{
 		if (meatSupplies > 0) {
-			GameObject newFood = Instantiate (meat);
+			newFood = Instantiate (meat);
 			newFood.transform.position = actualMousePosition;
 			meatSupplies -= 1;
 		}
@@ -111,7 +125,7 @@ public class Feed : MonoBehaviour
 
 	public void OnYouButtonClick ()
 	{
-		GameObject newFood = Instantiate(you);
+		newFood = Instantiate(you);
 		newFood.transform.position = actualMousePosition;
 		Health.health -= 1;
 		Cut.Play ();

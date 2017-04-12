@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Food : MonoBehaviour {
+	public ParticleSystem bloodSpur;
+
 	public Plant plant;
 	public Hearts Health;
 	Vector3 actualMousePosition;
@@ -26,8 +28,11 @@ public class Food : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D coll) {
 		if (coll.gameObject.tag == "Plant") {
 			Destroy(gameObject);
+			Vector3 position = new Vector3 (0f,-1f,0f);
+			Instantiate (bloodSpur, position, Quaternion.identity);
 			if (plant.sap == true) {
 				Health.health -= 1;
+
 			}
 		}
 	}

@@ -8,6 +8,8 @@ public class Water : MonoBehaviour
 
 	Vector3 actualMousePosition;
 
+	GameObject newWater;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -18,12 +20,30 @@ public class Water : MonoBehaviour
 	{
 		actualMousePosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 		actualMousePosition.z = 0;
+
+		//if a new water has been instantiated
+		if (newWater) 
+		{
+			//if mouse is being hold
+			if (Input.GetMouseButton (0)) 
+			{
+				//assign the new water position with the mouse position
+				newWater.transform.position = actualMousePosition;
+			}
+		}
+	}
+
+
+	public void trytry(){
+		Debug.Log ("!!!!????");
+		newWater.transform.position = newWater.transform.position;
+
 	}
 
 	public void OnWaterButtonClick ()
 	{
 		Debug.Log ("Water!");
-		GameObject newWater = Instantiate(water);
+		newWater = Instantiate(water);
 		newWater.transform.position = actualMousePosition;
 
 	}
